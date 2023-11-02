@@ -42,7 +42,7 @@ RUN true \
     #
     && curl -fsSL -o /usr/local/sbin/tini "https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini-${TINI_ARCH}" \
     && chmod u=rwx,go=rx /usr/local/sbin/tini \
-    && ${PY_EXE} -m pip install -U --no-cache pip setuptools wheel \
+    && ${PY_EXE} -m pip install -U --no-cache-dir pip setuptools wheel \
     #
     && groupadd -r -g "${WEB_GID}" "${WEB_GROUP}" \
     && useradd -r -g "${WEB_GROUP}" -u "${WEB_UID}" -d / -s /usr/sbin/nologin -c "System user for the web server" "${WEB_USER}" \
